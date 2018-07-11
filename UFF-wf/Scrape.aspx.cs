@@ -13,8 +13,6 @@ namespace UFF_wf
 {
     public partial class Scrape : Page
     {
-        string[] teams = new string[10];
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -68,19 +66,14 @@ namespace UFF_wf
 
                 //Team Name
                 arrayBigTable[0] = item.ChildNodes[0].InnerText.ToString().Split('(', ')')[0];
-
                 //PF
                 arrayBigTable[1] = item.ChildNodes[1].InnerText.ToString();
-
                 //PA
                 arrayBigTable[2] = item.ChildNodes[2].InnerText.ToString();
-
                 //Streak
                 arrayBigTable[3] = item.ChildNodes[6].InnerText.ToString();
-
                 //Divison
                 arrayBigTable[4] = division;
-
                 //Team Owner
                 try
                 { 
@@ -95,7 +88,6 @@ namespace UFF_wf
             }
 
             ConcurrentStack<string> finalStats = new ConcurrentStack<string>();
-            ConcurrentStack<string[]> finalStatsArray = new ConcurrentStack<string[]>();
             foreach (var item in textBigTable)
             {
                 var tbtName = item[0].ToString();
