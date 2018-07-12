@@ -13,15 +13,6 @@ namespace UFF_wf {
     public partial class Scrape {
         
         /// <summary>
-        /// lblMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
-        
-        /// <summary>
         /// btnScrapeStandings control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace UFF_wf {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnScrapeStandings;
+        
+        /// <summary>
+        /// lblStandingsLastUpdated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStandingsLastUpdated;
         
         /// <summary>
         /// btnScrapeHistory control.

@@ -17,8 +17,36 @@ namespace UFF_wf
         {
             if (!IsPostBack)
             {
-                lblMessage.Visible = false;
+                //lblMessage.Visible = false;
             }
+
+            lblStandingsLastUpdated.Text = GetLastUpdateDate_Standings();
+        }
+
+        public string GetLastUpdateDate_Standings()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                var sql = "SELECT TOP 1 CreatedDate FROM Standings ORDER BY CreatedDate Desc";
+
+                using (SqlCommand command = new SqlCommand(sql, sqlConnection))
+                {
+                    DataSet ds = new DataSet();
+                    sqlConnection.Open();
+                    command.CommandType = CommandType.Text;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = command;
+
+                    da.Fill(ds);
+                    sqlConnection.Close();
+
+                    return ds.Tables[0].Rows[0]["CreatedDate"].ToString();
+                }
+
+            }
+
+
         }
 
         public void btnScrapeStandings_Click(object sender, EventArgs e)
@@ -76,7 +104,7 @@ namespace UFF_wf
                 arrayBigTable[4] = division;
                 //Team Owner
                 try
-                { 
+                {
                     arrayBigTable[5] = item.ChildNodes[0].InnerText.ToString().Split('(', ')')[1].Split(',')[0];
                 }
                 catch
@@ -84,7 +112,7 @@ namespace UFF_wf
                     arrayBigTable[5] = null;
                 }
 
-                textBigTable.Add(arrayBigTable);               
+                textBigTable.Add(arrayBigTable);
             }
 
             ConcurrentStack<string> finalStats = new ConcurrentStack<string>();
@@ -95,17 +123,17 @@ namespace UFF_wf
 
                 var ttPosition = textTeams.FindIndex(x => x.Contains(item[0].Substring(0, 5))); //
                 var ttName = textTeams[ttPosition].ToString();
-                                                           
+
                 if (ttName.Substring(0, 5) == tbtName.Substring(0, 5))
                 {
-                    
+
                     var Wins = textWins[ttPosition].ToString();
                     var Losses = textLosses[ttPosition];
                     var Ties = textTies[ttPosition];
                     var Percentage = textPercentage[ttPosition];
-                    
+
                     //TeamName, PF, PA, Streak, Division, Owner, Wins, Losses, Ties, Percentage
-                    List<string> statArray = new List<string>() { item[0], item[1], item[2], item[3], item[4], item[5], Wins, Losses, Ties, Percentage}; 
+                    List<string> statArray = new List<string>() { item[0], item[1], item[2], item[3], item[4], item[5], Wins, Losses, Ties, Percentage };
 
                     var concatedString = statArray.Aggregate((a, b) => Convert.ToString(a) + "," + Convert.ToString(b));
 
@@ -134,7 +162,8 @@ namespace UFF_wf
 
         }
 
-        public void UpdateDB(List<string> Standings) { 
+        public void UpdateDB(List<string> Standings)
+        {
 
             using (SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
@@ -144,7 +173,7 @@ namespace UFF_wf
                 Random rnd = new Random();
                 int batch = rnd.Next(10000000, 99999999);
 
-                
+
 
                 foreach (var item in Standings)
                 {
@@ -170,8 +199,7 @@ namespace UFF_wf
                     sqlCommand.ExecuteNonQuery();
                     sqlCommand.Dispose();
                 }
-                lblMessage.Text = "Record updated successfully!";
-                lblMessage.Visible = false;
+
                 sqlConnection.Close();
             }
         }
