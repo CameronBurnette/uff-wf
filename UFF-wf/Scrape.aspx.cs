@@ -19,33 +19,6 @@ namespace UFF_wf
             {
                 lblMessage.Visible = false;
             }
-
-            rpStandings.DataSource = Standings().Tables[0];
-            rpStandings.DataBind();
-        }
-
-        public DataSet Standings()
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
-            {
-                var sql = "up_GetStandings";
-                
-                using (SqlCommand command = new SqlCommand(sql, sqlConnection))
-                {
-                    DataSet ds = new DataSet();
-                    sqlConnection.Open();
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataAdapter da = new SqlDataAdapter();
-                    da.SelectCommand = command;
-
-                    da.Fill(ds);
-                    sqlConnection.Close();
-
-                    return ds;
-                }
-                
-            }
         }
 
         public void btnScrapeStandings_Click(object sender, EventArgs e)
@@ -145,6 +118,22 @@ namespace UFF_wf
             UpdateDB(Standings);
         }
 
+        public void btnScrapeHistory_Click(object sender, EventArgs e)
+        {
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc = web.Load("http://games.espn.com/ffl/tools/finalstandings?leagueId=19933&seasonId=2016");
+
+            var smallTable = doc.DocumentNode.SelectNodes("//table[@id='finalRankingsTable']").ToList();
+            var TeamData = new List<HtmlNode> { smallTable[0].ChildNodes[5], smallTable[0].ChildNodes[7], smallTable[0].ChildNodes[9], smallTable[0].ChildNodes[11], smallTable[0].ChildNodes[13], smallTable[0].ChildNodes[15], smallTable[0].ChildNodes[17], smallTable[0].ChildNodes[19], smallTable[0].ChildNodes[21], smallTable[0].ChildNodes[23] };
+
+            ConcurrentStack<string> finalStats = new ConcurrentStack<string>();
+            foreach (var item in TeamData)
+            {
+
+            }
+
+        }
+
         public void UpdateDB(List<string> Standings) { 
 
             using (SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -185,9 +174,6 @@ namespace UFF_wf
                 lblMessage.Visible = false;
                 sqlConnection.Close();
             }
-
-            rpStandings.DataSource = Standings;
-            rpStandings.DataBind();
         }
     }
 }

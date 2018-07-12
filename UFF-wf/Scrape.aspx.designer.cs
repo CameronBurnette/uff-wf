@@ -22,15 +22,6 @@ namespace UFF_wf {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// rpStandings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpStandings;
-        
-        /// <summary>
         /// btnScrapeStandings control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,14 @@ namespace UFF_wf {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnScrapeStandings;
+        
+        /// <summary>
+        /// btnScrapeHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnScrapeHistory;
     }
 }
