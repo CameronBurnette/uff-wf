@@ -19,6 +19,33 @@ namespace UFF_wf
             {
                 lblMessage.Visible = false;
             }
+
+            rpStandings.DataSource = Standings().Tables[0];
+            rpStandings.DataBind();
+        }
+
+        public DataSet Standings()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                var sql = "up_GetStandings";
+                
+                using (SqlCommand command = new SqlCommand(sql, sqlConnection))
+                {
+                    DataSet ds = new DataSet();
+                    sqlConnection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = command;
+
+                    da.Fill(ds);
+                    sqlConnection.Close();
+
+                    return ds;
+                }
+                
+            }
         }
 
         public void btnScrapeStandings_Click(object sender, EventArgs e)

@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UFF_wf {
+namespace UFF_wf.Controls {
     
     
-    public partial class _Default {
+    public partial class ucStandings {
         
         /// <summary>
-        /// ucStandings control.
+        /// rpStandings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UFF_wf.Controls.ucStandings ucStandings;
+        protected global::System.Web.UI.WebControls.Repeater rpStandings;
     }
 }
