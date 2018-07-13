@@ -59,11 +59,12 @@ namespace UFF_wf
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "763416234848-i6dorb0dj9aturu3mpshflun6fabqb8n.apps.googleusercontent.com",
+                ClientSecret = "5QIvLlm_qHkL2PsCl69jCCzP",
+                CallbackPath = new PathString("/signin-google")
+            });
         }
     }
 }
