@@ -21,6 +21,7 @@ namespace UFF_wf
             }
 
             lblStandingsLastUpdated.Text = GetLastUpdateDate_Standings();
+
         }
 
         public string GetLastUpdateDate_Standings()
@@ -41,7 +42,9 @@ namespace UFF_wf
                     da.Fill(ds);
                     sqlConnection.Close();
 
+
                     return ds.Tables[0].Rows[0]["CreatedDate"].ToString();
+                    
                 }
 
             }
