@@ -4,8 +4,7 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
-        <h2 style="text-align: center;">Current Season Standings</h2>
+    <div class="container">        
         <uc1:ucStandings runat="server" id="ucStandings" />
     </div>
 </asp:Content>
