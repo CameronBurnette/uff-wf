@@ -228,6 +228,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="images\btn_google_signin_dark_disabled_web.png" />
+    <Content Include="images\btn_google_signin_dark_focus_web.png" />
+    <Content Include="images\btn_google_signin_dark_normal_web.png" />
+    <Content Include="images\btn_google_signin_dark_pressed_web.png" />
+    <Content Include="images\btn_google_signin_light_disabled_web.png" />
+    <Content Include="images\btn_google_signin_light_focus_web.png" />
+    <Content Include="images\btn_google_signin_light_normal_web.png" />
+    <Content Include="images\btn_google_signin_light_pressed_web.png" />
     <Content Include="Scrape.aspx" />
     <Content Include="Scripts\bootstrap-sortable.js" />
     <Content Include="Scripts\bootstrap.js" />

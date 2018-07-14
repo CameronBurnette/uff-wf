@@ -1,15 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OpenAuthProviders.ascx.cs" Inherits="UFF_wf.Account.OpenAuthProviders" %>
 
 <div id="socialLoginList">
-    <h4>Log in using Google.</h4>
-    <hr />
     <asp:ListView runat="server" ID="providerDetails" ItemType="System.String"
         SelectMethod="GetProviderNames" ViewStateMode="Disabled">
         <ItemTemplate>
             <p>
                 <button type="submit" class="btn btn-default" name="provider" value="<%#: Item %>"
                     title="Log in using your <%#: Item %> account.">
-                    <%#: Item %>
+                    <img src="../images/btn_google_signin_dark_normal_web.png" />
                 </button>
             </p>
         </ItemTemplate>
