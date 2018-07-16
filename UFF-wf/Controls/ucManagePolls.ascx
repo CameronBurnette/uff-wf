@@ -44,17 +44,17 @@
             <asp:TextBox ID="txtPollOptions" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="Team 1~Team 2"></asp:TextBox>
         </div>
     </div>
-    <div class="row" style="padding-top: 10px">
+    <div class="row" style="padding-top: 10px; padding-bottom: 15px;">
         <div class="col-md-12 .text-right" style="text-align: right">
             <asp:Button ID="btnCreatePoll" runat="server" Text="Create" CssClass="btn btn-primary" OnClick="btnCreatePoll_Click" />
         </div>
     </div>
 </div>
 <div class="col-md-8">
-    <div class="col-md-12" style="text-align: center; vertical-align: middle;">
+    <div class="col-md-12 table-responsive" style="text-align: center; vertical-align: middle; padding-left: 0px; padding-right: 0px;">
         <asp:Repeater ID="rpPollQuestions" runat="server" OnItemDataBound="rpPollQuestions_OnItemDataBound">
             <HeaderTemplate>
-                <table id="Polls" class="table table-striped table-bordered sortable table-condensed" style="overflow-x: scroll; overflow-y: scroll; text-align: center; vertical-align: middle;">
+                <table id="Polls" class="table table-striped table-condensed sortable table-bordered" style="overflow-x: scroll; overflow-y: scroll; text-align: center; vertical-align: middle; margin-bottom: 0px;">
                     <thead>
                         <tr>
                             <th style="text-align: center; vertical-align: middle;">Poll #</th>
@@ -88,10 +88,10 @@
                     </td>
                 </tr>
                 <tr style="background-color: #337ab7; border-color: #2e6da4;">
-                    <td colspan="12">
+                    <td colspan="5">
                         <asp:Repeater ID="rpVotes" runat="server" OnItemDataBound="rpUserVotes_OnItemDataBound">
                             <HeaderTemplate>
-                                <table id="Votes" class="table table-striped table-inverse table-bordered sortable table-condensed" style="overflow-x: scroll; overflow-y: scroll; text-align: center; vertical-align: middle; display: none;">
+                                <table id="Votes" class="table table-striped table-inverse table-bordered sortable table-condensed" style="text-align: center; vertical-align: middle; display: none;">
                                     <thead>
                                         <tr>
                                             <th style="text-align: center; vertical-align: middle;">Users</th>
@@ -122,7 +122,7 @@
                                     <td colspan="12">
                                         <asp:Repeater runat="server" ID="rpUserVotes">
                                             <HeaderTemplate>
-                                                <table id="Users" class="table table-striped table-inverse table-bordered sortable table-condensed" style="overflow-x: scroll; overflow-y: scroll; text-align: center; vertical-align: middle; display: none;">
+                                                <table id="Users" class="table table-striped table-inverse table-bordered sortable table-condensed" style="text-align: center; vertical-align: middle; display: none;">
                                                     <thead>
                                                         <tr>
                                                             <th style="text-align: center; vertical-align: middle;">User</th>

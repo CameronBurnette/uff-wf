@@ -70,6 +70,7 @@
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                                 <li><a runat="server" href="~/Scrape">Update Data</a></li>
+                                <li><a runat="server" href="~/ManagePolls">Manage Polls</a></li>
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
