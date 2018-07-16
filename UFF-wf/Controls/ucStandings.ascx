@@ -17,7 +17,7 @@
 </div>
 <div class="row">
     <div class="col-sm-1"></div>
-    <div class="col-sm-10" style="text-align: center; overflow-x: auto; overflow-y:auto">        
+    <div class="col-sm-10 table-responsive" style="text-align: center;  padding-left: 0px; padding-right: 0px;">        
         <asp:Repeater ID="rpStandings" runat="server">
             <HeaderTemplate>
                 <table id="standings" class="table table-striped table-bordered sortable table-condensed" style="overflow-x: scroll; overflow-y: scroll;">

@@ -87,7 +87,7 @@
                         </asp:LinkButton>
                     </td>
                 </tr>
-                <tr style="background-color: #337ab7; border-color: #2e6da4;">
+                <tr style="background-color: #163e61; border-color: #2e6da4;">
                     <td colspan="5">
                         <asp:Repeater ID="rpVotes" runat="server" OnItemDataBound="rpUserVotes_OnItemDataBound">
                             <HeaderTemplate>
