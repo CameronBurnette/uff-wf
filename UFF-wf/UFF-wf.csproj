@@ -221,6 +221,7 @@
     <Content Include="Controls\ucManagePolls.ascx" />
     <Content Include="Controls\ucPoll.ascx" />
     <Content Include="Controls\ucStandings.ascx" />
+    <Content Include="Controls\ucUserPolls.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -428,6 +429,13 @@
     </Compile>
     <Compile Include="Controls\ucStandings.ascx.designer.cs">
       <DependentUpon>ucStandings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucUserPolls.ascx.cs">
+      <DependentUpon>ucUserPolls.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ucUserPolls.ascx.designer.cs">
+      <DependentUpon>ucUserPolls.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
